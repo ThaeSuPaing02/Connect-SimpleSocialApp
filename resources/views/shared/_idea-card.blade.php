@@ -22,7 +22,7 @@
             </div>
             <div>
                 <span class="fs-6 fw-light text-muted"> <span class="fas fa-clock"> </span>
-                    3-5-2023 </span>
+                    {{$idea->created_at}}</span>
             </div>
         </div>
         <div>
