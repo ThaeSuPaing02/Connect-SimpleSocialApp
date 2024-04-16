@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="col-6">
-
+        @include('shared._success-message')
         @include('shared._submit-ideas')
         <hr>
         <div class="mt-3">
