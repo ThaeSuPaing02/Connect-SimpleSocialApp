@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,16 +13,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('', [DashboardController::class, 'index'])->name('dashboard.dashboard');
-Route::group(['prefix'=>'ideas/','as'=>'idea.','middleware'=>['auth']],function(){
-    Route::post('', [IdeaController::class, 'store'])->name('store')->withoutMiddleware(['auth']);
-    Route::delete('/{id}',[IdeaController::class,'destroy'])->name('destroy');
-    Route::get('{idea}',[IdeaController::class,'show'])->name('show')->withoutMiddleware(['auth']);
-    Route::get('{idea}/edit',[IdeaController::class,'edit'])->name('edit');
-    Route::put('{idea}/update',[IdeaController::class,'update'])->name('update');
-    Route::post('{idea}/comment', [CommentController::class, 'store'])->name('comment.store')->middleware('auth');
-});
 
 
 

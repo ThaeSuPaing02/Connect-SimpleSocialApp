@@ -14,7 +14,8 @@
                     @csrf
                     @method('delete')
                     <a href="{{route('idea.show',$idea->id)}}">view</a>
-                    @if (auth()->id() == $idea->id)
+                    @if (auth()->id() == $idea->user->id)
+
                     <a href="{{route('idea.edit',$idea->id)}}" class="ms-1">edit</a>
                     <button class="btn btn-danger btn-sm ms-1">X</button>
                     @endif
