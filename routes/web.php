@@ -19,12 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.dashboard');
 Route::post('/ideas', [IdeaController::class, 'store'])->name('idea.store');
-Route::delete('/ideas/{id}',[IdeaController::class,'destroy'])->name('idea.destroy');
+Route::delete('/ideas/{id}',[IdeaController::class,'destroy'])->name('idea.destroy')->middleware('auth');
 Route::get('/ideas/{idea}',[IdeaController::class,'show'])->name('idea.show');
-Route::get('/ideas/{idea}/edit',[IdeaController::class,'edit'])->name('idea.edit');
-Route::put('/ideas/{idea}/update',[IdeaController::class,'update'])->name('idea.update');
+Route::get('/ideas/{idea}/edit',[IdeaController::class,'edit'])->name('idea.edit')->middleware('auth');
+Route::put('/ideas/{idea}/update',[IdeaController::class,'update'])->name('idea.update')->middleware('auth');
 
-Route::post('/ideas/{idea}/comment', [CommentController::class, 'store'])->name('idea.comment.store');
+Route::post('/ideas/{idea}/comment', [CommentController::class, 'store'])->name('idea.comment.store')->middleware('auth');
 Route::get('/register',[AuthController::class,'register'])->name('register');
 Route::post('/register',[AuthController::class,'store']);
 Route::get('/login',[AuthController::class,'login'])->name('login');
