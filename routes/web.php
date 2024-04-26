@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdeaController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,9 @@ Route::get('/ideas/{idea}/edit',[IdeaController::class,'edit'])->name('idea.edit
 Route::put('/ideas/{idea}/update',[IdeaController::class,'update'])->name('idea.update');
 
 Route::post('/ideas/{idea}/comment', [CommentController::class, 'store'])->name('idea.comment.store');
-
+Route::get('/register',[AuthController::class,'register'])->name('register');
+Route::post('/register',[AuthController::class,'store'])->name('register');
 Route::get('/terms', function () {
     return view('terms');
 });
+
