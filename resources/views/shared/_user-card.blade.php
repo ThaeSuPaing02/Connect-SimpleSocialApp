@@ -3,14 +3,10 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
                 <img style="width:150px" class="me-3 avatar-sm rounded-circle"
-                    src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+                    src="{{$user->getImageURL()}}" alt="Mario Avatar">
                 <div>
-                    @if($editing ?? false)
-                        <input type="text" class="form-control" value="{{$user->name}}">
-                    @else
-                        <h3 class="card-title mb-0"><a href="#">{{$user->name}}</a></h3>
-                        <span class="fs-6 text-muted">{{$user->email}}</span>
-                    @endif
+                    <h3 class="card-title mb-0"><a href="#">{{$user->name}}</a></h3>
+                    <span class="fs-6 text-muted">{{$user->email}}</span>
                 </div>
             </div>
             <div class="">
@@ -23,18 +19,9 @@
         </div>
         <div class="px-2 mt-4">
             <h5 class="fs-5"> Bio : </h5>
-                @if($editing ?? false)
-                    <div class="mb-3">
-                        <textarea class="form-control" id="bio" rows="3" name="bio"></textarea>
-                        @error('idea')
-                                <span class="d-block fs-6 text-danger mt-2">{{$message}}</span>
-                        @enderror
-                    </div>
-                    <button class="btn btn-sm btn-dark mb-3">Save</button>
-                @else
-                    <p class="fs-6 fw-light">
-                    </p>
-                @endif
+                <p class="fs-6 fw-light">
+                    {{$user->bio}}
+                </p>
             <div class="d-flex justify-content-start">
                 <a href="#" class="fw-light nav-link fs-6 me-3"> <span class="fas fa-user me-1">
                     </span> 0 Followers </a>
