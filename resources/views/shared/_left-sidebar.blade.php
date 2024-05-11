@@ -2,12 +2,12 @@
     <div class="card-body pt-3">
         <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
+                <a class="nav-link {{ Route::is('dashboard.dashboard') ? 'text-white bg-primary rounded' : '' }}" href="{{route('dashboard.dashboard')}}">
                     <span>Home</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span>Explore</span></a>
+                <a class="nav-link {{ Request::is('terms') ? 'text-white bg-primary rounded' : '' }}" href="{{url('terms')}}">
+                    <span>Terms</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
