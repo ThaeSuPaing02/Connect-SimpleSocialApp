@@ -8,7 +8,7 @@
         @include('shared._success-message')
         <hr>
         <div class="mt-3">
-             @include('shared._idea-card')
+             @include('ideas.shared._idea-card')
             <div class="mt-3 "></div>
         </div>
     </div>
