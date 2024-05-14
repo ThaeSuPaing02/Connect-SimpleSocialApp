@@ -41,8 +41,8 @@ Route::get('/terms', function () {
     return view('terms');
 })->name('');
 Route::get('/profile',[UserController::class,'profile'])->middleware(['auth'])->name('profile');
-Route::resource('users',UserController::class)->only('show','edit','update')->middleware('auth');
-
+Route::resource('users',UserController::class)->only('edit','update')->middleware('auth');
+Route::resource('users',UserController::class)->only('show');
 Route::post('users/{user}/follow',[FollowerController::class,'follow'])->middleware('auth')->name('users.follow');
 Route::post('users/{user}/unfollow',[FollowerController::class,'unfollow'])->middleware('auth')->name('users.unfollow');
 
