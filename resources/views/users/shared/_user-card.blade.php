@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="">
-                @auth()
+                @auth
                     @if(auth()->id() === $user->id)
                         <a href="{{route('users.edit',$user->id)}}">Edit</a>
                     @endif
