@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
@@ -52,3 +53,5 @@ Route::post('ideas/{idea}/unlike',[IdeaLikeController::class,'unlike'])->middlew
 
 //feed is for only those who are logged in
 Route::get('/feed',FeedController::class)->middleware('auth')->name('feed');
+
+Route::get('/admin',[AdminDashboardController::class,'index'])->name('admin.dashboard')->middleware(['admin','auth']);
