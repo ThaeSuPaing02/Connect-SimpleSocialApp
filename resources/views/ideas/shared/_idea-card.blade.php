@@ -9,17 +9,19 @@
                         </a></h5>
                 </div>
             </div>
-            <div class="">
-                <form action="{{route('idea.destroy',$idea->id)}}" method="post">
-                    @csrf
-                    @method('delete')
-                    <a href="{{route('idea.show',$idea->id)}}">view</a>
-                    @if (auth()->id() == $idea->user->id)
+            <div class="d-flex">
+                <a href="{{route('idea.show',$idea->id)}}">view</a>
+                @auth
+                    @can('idea.edit',$idea)
+                        <a href="{{route('idea.edit',$idea->id)}}" class="ms-1">edit</a>
+                        <form action="{{route('idea.destroy',$idea->id)}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-danger btn-sm ms-1">X</button>
+                        </form>
+                    @endcan
+                @endauth
 
-                    <a href="{{route('idea.edit',$idea->id)}}" class="ms-1">edit</a>
-                    <button class="btn btn-danger btn-sm ms-1">X</button>
-                    @endif
-                </form>
             </div>
         </div>
     </div>

@@ -54,4 +54,4 @@ Route::post('ideas/{idea}/unlike',[IdeaLikeController::class,'unlike'])->middlew
 //feed is for only those who are logged in
 Route::get('/feed',FeedController::class)->middleware('auth')->name('feed');
 
-Route::get('/admin',[AdminDashboardController::class,'index'])->name('admin.dashboard')->middleware(['admin','auth']);
+Route::get('/admin',[AdminDashboardController::class,'index'])->name('admin.dashboard')->middleware(['auth','can:admin']);
