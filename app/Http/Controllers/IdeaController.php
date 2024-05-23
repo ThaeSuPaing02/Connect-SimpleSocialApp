@@ -19,7 +19,7 @@ class IdeaController extends Controller
         // if(auth()->id() !== $idea->user_id){
         //     abort(404);
         // }
-        $this->authorize('idea.edit',$idea);
+        $this->authorize('update',$idea);
         $editing = true;
         return view('ideas.show',compact('idea','editing'));
     }
@@ -27,7 +27,7 @@ class IdeaController extends Controller
         // if(auth()->id() !== $idea->user_id){
         //     abort(404);
         // }
-        $this->authorize('idea.edit',$idea);
+        $this->authorize('update',$idea);
         $validated= request()->validate(
             [
                 'content' => 'required|min:3|max:240'
@@ -53,7 +53,7 @@ class IdeaController extends Controller
         // if(auth()->id() !== $idea->user_id){
         //     abort(404);
         // }
-        $this->authorize('idea.delete',$idea);
+        $this->authorize('delete',$idea);
         $idea->delete();
         return redirect()->route('dashboard.dashboard')->with('success','Idea deleted sucessfully.');
     }

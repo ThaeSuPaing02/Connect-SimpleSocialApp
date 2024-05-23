@@ -12,7 +12,7 @@
             <div class="d-flex">
                 <a href="{{route('idea.show',$idea->id)}}">view</a>
                 @auth
-                    @can('idea.edit',$idea)
+                    @can('update',$idea)
                         <a href="{{route('idea.edit',$idea->id)}}" class="ms-1">edit</a>
                         <form action="{{route('idea.destroy',$idea->id)}}" method="post">
                             @csrf
