@@ -17,5 +17,5 @@
 @endauth
 
 @guest()
-    <h4>Login to share your ideas.</h4>
+    <h4>Login to connect with people.</h4>
 @endguest
