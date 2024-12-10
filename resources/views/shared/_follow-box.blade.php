@@ -1,5 +1,5 @@
 <div class="card mt-3">
-    <div class="card-header pb-0 border-0">
+    <!-- <div class="card-header pb-0 border-0">
         <h5 class="">Who to follow</h5>
     </div>
     <div class="card-body">
@@ -30,5 +30,5 @@
         <div class="d-grid mt-3">
             <a class="btn btn-sm btn-primary-soft" href="#!">Show More</a>
         </div>
-    </div>
+    </div> -->
 </div>

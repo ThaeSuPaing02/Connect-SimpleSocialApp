@@ -9,29 +9,10 @@
                 <a class="nav-link {{ Route::is('feed') ? 'text-white bg-primary rounded' : '' }}" href="{{route('feed')}}">
                     <span>Feed</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('terms') ? 'text-white bg-primary rounded' : '' }}" href="{{url('terms')}}">
-                    <span>Terms</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span>Feed</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span>Terms</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span>Support</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span>Settings</span></a>
-            </li>
+            
         </ul>
     </div>
     <div class="card-footer text-center py-2">
-        <a class="btn btn-link btn-sm" href="#">View Profile </a>
+        <a class="btn btn-link btn-sm" href="{{route('profile')}}">View Profile </a>
     </div>
 </div>
