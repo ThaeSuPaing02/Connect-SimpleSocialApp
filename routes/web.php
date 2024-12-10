@@ -44,6 +44,7 @@ Route::get('/terms', function () {
 })->name('');
 Route::get('/profile',[UserController::class,'profile'])->middleware(['auth'])->name('profile');
 Route::resource('users',UserController::class)->only('edit','update')->middleware('auth');
+Route::delete('/users/{id}', [UserController::class, 'del'])->name('users.del');
 Route::resource('users',UserController::class)->only('show');
 Route::post('users/{user}/follow',[FollowerController::class,'follow'])->middleware('auth')->name('users.follow');
 Route::post('users/{user}/unfollow',[FollowerController::class,'unfollow'])->middleware('auth')->name('users.unfollow');

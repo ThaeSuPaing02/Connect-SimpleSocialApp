@@ -25,6 +25,12 @@ class UserController extends Controller
         return view('users.edit',compact('user','editing','ideas'));
     }
 
+    public function del($id){
+        $user = User::findOrFail($id); // Find the user by ID
+        $user->delete();              // Delete the user
+        return redirect()->back()->with('success', 'User deleted successfully.');
+    }
+
     /**
      * Update the specified resource in storage.
      */

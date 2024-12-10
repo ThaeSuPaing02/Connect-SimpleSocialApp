@@ -14,6 +14,11 @@
                     @if(auth()->id() === $user->id)
                         <a href="{{route('users.edit',$user->id)}}">Edit</a>
                     @endif
+                    <form action="{{ route('users.del', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
                 @endauth
             </div>
         </div>
